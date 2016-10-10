@@ -11,13 +11,22 @@ import android.widget.PopupWindow;
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
+        //Create Instances for test
+        Instituicao Asilo_de_Vitoria = new Instituicao();
+        Asilo_de_Vitoria.setNome("Asilo de Vitória");
+        Asilo_de_Vitoria.setDescricao("<<Add descrição aqui>>");
+        Asilo_de_Vitoria.setFoto("logo_asilo_de_vitoria");
+
+
+
 
         String popupaberto = null;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Configure Markers and POPUP
         final Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new Button.OnClickListener(){
 
@@ -43,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
                     }});
 
                 popupWindow.showAsDropDown(button1, 50, -30);
-
             }});
+
+
+
+
+
+
     }
 }
