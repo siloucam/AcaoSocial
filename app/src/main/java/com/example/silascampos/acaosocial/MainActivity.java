@@ -7,57 +7,60 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    PopupWindow popup = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        //Create Instances for test
-        Instituicao Asilo_de_Vitoria = new Instituicao();
-        Asilo_de_Vitoria.setNome("Asilo de Vitória");
-        Asilo_de_Vitoria.setDescricao("<<Add descrição aqui>>");
-        Asilo_de_Vitoria.setFoto("logo_asilo_de_vitoria");
-
-
-
-
-        String popupaberto = null;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Configure Markers and POPUP
-        final Button button1 = (Button)findViewById(R.id.button1);
-        button1.setOnClickListener(new Button.OnClickListener(){
+        final Instituicao button1 = (Instituicao)findViewById(R.id.button1);
+        button1.setNome("Asilo dos Idosos de Vitória");
+
+        button1.setOnClickListener(new PopupClickListener(popup){
 
             @Override
             public void onClick(View arg0) {
-
                 LayoutInflater layoutInflater
                         = (LayoutInflater)getBaseContext()
                         .getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = layoutInflater.inflate(R.layout.instituicao_popup, null);
-                final PopupWindow popupWindow = new PopupWindow(
+                View popupView = layoutInflater.inflate(R.layout.activity_popup_, null);
+                if(popup!=null){popup.dismiss();popup=null;}
+                popup = new PopupWindow(
                         popupView,
                         ActionBar.LayoutParams.WRAP_CONTENT,
                         ActionBar.LayoutParams.WRAP_CONTENT);
 
+                //Popup Button Click
                 Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
                 btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
                     @Override
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
-                        popupWindow.dismiss();
+                        popup.dismiss();
                     }});
 
-                popupWindow.showAsDropDown(button1, 50, -30);
+                //Set Text to correspondent i
+                TextView txt = (TextView)popupView.findViewById(R.id.popup_nome);
+                txt.setText(button1.getNome());
+
+                popup.showAsDropDown(button1, 0, 0);
             }});
 
-
-
-
-
+        //Map Click
+        RelativeLayout app_layer = (RelativeLayout) findViewById (R.id.Map);
+        app_layer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(popup!=null){popup.dismiss();popup=null;}
+            }
+        });
 
     }
-}
+};

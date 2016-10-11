@@ -7,19 +7,28 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/map_background"
     tools:context="com.example.silascampos.acaosocial.MainActivity"
     style="@style/Base.Widget.AppCompat.Button.Borderless">
 
-    <Button
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:text=""
-        android:id="@+id/button1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/marker" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:background="@drawable/map_background"
+        android:id="@+id/Map">
+
+        <com.example.silascampos.acaosocial.Instituicao
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:text=""
+            android:id="@+id/button1"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/marker" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
