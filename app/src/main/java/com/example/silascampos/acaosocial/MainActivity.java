@@ -1,5 +1,6 @@
 package com.example.silascampos.acaosocial;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
         final Instituicao button1 = (Instituicao)findViewById(R.id.button1);
         button1.setNome("Sociedade Cultural e Beneficente Mons. Alonso");
         button1.setEndereco("Rua 23 de Maio, 359. Parque Moscoso. Vitória-ES CEP 29018-615");
-        button1.setContato("(27) 3223-1936");
+        button1.setContato("02732231936");
         button1.setFoto("logo_malonso");
+        button1.setResponsavel("Frei Marcos");
+        button1.setDescricao("Lar de idosos. Abriga atualmente cerca de 10 a 15 idosos.");
+
 
         button1.setOnClickListener(new PopupClickListener(popup){
 
@@ -48,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
                         popup.dismiss();
+                        Intent i = new Intent(getApplicationContext(), Instituicao_Activity.class);
+                        i.putExtra("nome",button1.getNome());
+                        i.putExtra("endereco",button1.getEndereco());
+                        i.putExtra("contato",button1.getContato());
+                        i.putExtra("foto",button1.getFoto());
+                        i.putExtra("responsavel",button1.getResponsavel());
+                        i.putExtra("descricao",button1.getDescricao());
+                        i.putExtra("foto",button1.getFoto());
+                        startActivity(i);
                     }});
 
                 //Set data to correspondent i
@@ -62,9 +75,11 @@ public class MainActivity extends AppCompatActivity {
         //Configure Markers and POPUP on button2
         final Instituicao button2 = (Instituicao)findViewById(R.id.button2);
         button2.setNome("Casa Menino São João Batista");
-        button1.setEndereco("Rua J, Quadra 32, nº5, Bairro Manoel Plaza. Serra-ES");
-        button1.setContato("(27) 3281-3701");
-        button1.setFoto("logo_malonso");
+        button2.setEndereco("Rua J, Quadra 32, nº5, Bairro Manoel Plaza. Serra-ES");
+        button2.setContato("02732813701");
+        button2.setFoto("logo_malonso");
+        button2.setResponsavel("");
+        button2.setDescricao("Orfanato que abriga atualmente cerca de 10 crianças de 0 a 4 anos.");
 
         button2.setOnClickListener(new PopupClickListener(popup){
 
@@ -87,6 +102,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
                         popup.dismiss();
+                        Intent i = new Intent(getApplicationContext(), Instituicao_Activity.class);
+                        i.putExtra("nome",button2.getNome());
+                        i.putExtra("endereco",button2.getEndereco());
+                        i.putExtra("contato",button2.getContato());
+                        i.putExtra("foto",button2.getFoto());
+                        i.putExtra("responsavel",button2.getResponsavel());
+                        i.putExtra("descricao",button2.getDescricao());
+                        i.putExtra("foto",button2.getFoto());
+                        startActivity(i);
                     }});
 
                 //Set Text to correspondent i

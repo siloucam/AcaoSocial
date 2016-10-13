@@ -18,6 +18,7 @@ public class Instituicao extends Button {
     private String endereco;
     private String doacoes;
     private String contato;
+    private String responsavel;
 
     public Instituicao(Context context) {
         super(context);
@@ -90,5 +91,13 @@ public class Instituicao extends Button {
 
     public void setContato(String contato) {
         this.contato = contato;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 }

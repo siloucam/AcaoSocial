@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.silascampos.acaosocial.Instituicao_Activity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/foto"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/logo_malonso"
+        />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nome da Instituição"
+        android:id="@+id/nome"
+        android:textColor="#2D4471"
+        android:layout_below="@+id/foto"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Endereço"
+        android:id="@+id/endereco"
+        android:layout_below="@+id/nome"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Contato:"
+        android:id="@+id/textView"
+        android:layout_below="@+id/endereco"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text=""
+        android:id="@+id/call_button"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/call_icon"
+        />
+
+    <TextView
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Small Text"
+        android:id="@+id/contato"
+        android:layout_below="@+id/textView"
+        android:layout_toEndOf="@+id/call_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/responsavel"
+        android:layout_marginStart="28dp"
+        android:layout_alignBottom="@+id/contato"
+        android:layout_toEndOf="@+id/contato" />
+
+    <TextView
+        android:paddingTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Descrição:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/call_button"
+        android:layout_alignParentStart="true" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/customborder2">
+
+        <TextView
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/descricao"
+            android:layout_gravity="left|top" />
+    </FrameLayout>
+
+    <Button
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#2D4471"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AGENDAR VISITA"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/customborder" />
+</RelativeLayout>
