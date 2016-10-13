@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Configure Markers and POPUP
+        //Configure Markers and POPUP on button1
         final Instituicao button1 = (Instituicao)findViewById(R.id.button1);
-        button1.setNome("Asilo dos Idosos de Vitória");
+        button1.setNome("Sociedade Cultural e Beneficente Mons. Alonso");
+        button1.setEndereco("Rua 23 de Maio, 359. Parque Moscoso. Vitória-ES CEP 29018-615");
+        button1.setContato("(27) 3223-1936");
+        button1.setFoto("logo_malonso");
 
         button1.setOnClickListener(new PopupClickListener(popup){
 
@@ -46,16 +50,21 @@ public class MainActivity extends AppCompatActivity {
                         popup.dismiss();
                     }});
 
-                //Set Text to correspondent i
+                //Set data to correspondent i
                 TextView txt = (TextView)popupView.findViewById(R.id.popup_nome);
                 txt.setText(button1.getNome());
+                ImageView foto = (ImageView)popupView.findViewById(R.id.foto);
+                foto.setBackgroundResource(R.drawable.logo_malonso);
 
                 popup.showAsDropDown(button1, 0, 0);
             }});
 
-        //Configure Markers and POPUP on button 2
+        //Configure Markers and POPUP on button2
         final Instituicao button2 = (Instituicao)findViewById(R.id.button2);
-        button2.setNome("Instituição 2");
+        button2.setNome("Casa Menino São João Batista");
+        button1.setEndereco("Rua J, Quadra 32, nº5, Bairro Manoel Plaza. Serra-ES");
+        button1.setContato("(27) 3281-3701");
+        button1.setFoto("logo_malonso");
 
         button2.setOnClickListener(new PopupClickListener(popup){
 
@@ -83,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 //Set Text to correspondent i
                 TextView txt = (TextView)popupView.findViewById(R.id.popup_nome);
                 txt.setText(button2.getNome());
+                ImageView foto = (ImageView)popupView.findViewById(R.id.foto);
+                foto.setBackgroundResource(R.drawable.logo_orfanato);
 
                 popup.showAsDropDown(button2, 0, 0);
             }});

@@ -15,6 +15,9 @@ public class Instituicao extends Button {
     private String foto;
     private String nome;
     private String descricao;
+    private String endereco;
+    private String doacoes;
+    private String contato;
 
     public Instituicao(Context context) {
         super(context);
@@ -63,5 +66,29 @@ public class Instituicao extends Button {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDoacoes() {
+        return doacoes;
+    }
+
+    public void setDoacoes(String doacoes) {
+        this.doacoes = doacoes;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 }
