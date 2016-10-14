@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,10 +37,6 @@ public class Instituicao_Activity extends AppCompatActivity {
 
             ImageView foto = (ImageView) findViewById(R.id.foto);
             foto.setBackgroundResource(R.drawable.logo_orfanato);
-
-
-
-            //The key argument here must match that used in the other activity
         }
 
         findViewById(R.id.call_button).setOnClickListener(new View.OnClickListener() {
@@ -50,8 +47,14 @@ public class Instituicao_Activity extends AppCompatActivity {
             }
         });
 
-
-
+        Button btn = (Button)findViewById(R.id.visitar);
+        btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), AgendarVisita.class);
+                //i.putExtra("nome",button2.getNome());
+                startActivity(i);
+            }});
     }
 
     private void dialContactPhone(String phoneNumber) {

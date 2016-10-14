@@ -114,8 +114,8 @@
         android:textColor="#2D4471"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AGENDAR VISITA"
-        android:id="@+id/button"
+        android:text="QUERO VISITAR!"
+        android:id="@+id/visitar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/customborder" />
