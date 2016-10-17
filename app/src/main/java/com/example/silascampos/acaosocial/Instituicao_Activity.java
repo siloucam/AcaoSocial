@@ -44,23 +44,19 @@ public class Instituicao_Activity extends AppCompatActivity {
             File imageFile;
             ImageView foto = (ImageView) findViewById(R.id.foto);
 
-            /*
+
             File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES.toString());
             imageFile = new File(picsDir,value);
             Bitmap mImageBitmap = BitmapFactory.decodeFile(String.valueOf(imageFile));
             Bitmap scaled = Bitmap.createScaledBitmap(mImageBitmap, 100, 100, true);
-            foto.setImageBitmap(scaled);*/
+            foto.setImageBitmap(scaled);
 
+            /*
             if(value.equals("logo_malonso.png")){
                 foto.setBackgroundResource(R.drawable.logo_malonso);
             }else if(value.equals("logo_orfanato.png")){
                 foto.setBackgroundResource(R.drawable.logo_orfanato);
-            }
-
-
-
-
-
+            }*/
         }
 
         findViewById(R.id.call_button).setOnClickListener(new View.OnClickListener() {
