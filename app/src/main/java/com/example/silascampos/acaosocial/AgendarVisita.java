@@ -1,11 +1,13 @@
 package com.example.silascampos.acaosocial;
 
+import android.app.DialogFragment;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -33,5 +35,10 @@ public class AgendarVisita extends AppCompatActivity{
         });
 
 
+    }
+
+    public void showTimePickerDialog(View v){
+        TimePickerFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 }
