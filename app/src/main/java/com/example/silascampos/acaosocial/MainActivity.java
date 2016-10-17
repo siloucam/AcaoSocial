@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setNome("Sociedade Cultural e Beneficente Mons. Alonso");
         button1.setEndereco("Rua 23 de Maio, 359. Parque Moscoso. Vitória-ES CEP 29018-615");
         button1.setContato("02732231936");
-        button1.setFoto("logo_malonso");
+        button1.setFoto("logo_malonso.png");
         button1.setResponsavel("Frei Marcos");
         button1.setDescricao("Lar de idosos. Abriga atualmente cerca de 10 a 15 idosos.");
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         button2.setNome("Casa Menino São João Batista");
         button2.setEndereco("Rua J, Quadra 32, nº5, Bairro Manoel Plaza. Serra-ES");
         button2.setContato("02732813701");
-        button2.setFoto("logo_malonso");
+        button2.setFoto("logo_orfanato.png");
         button2.setResponsavel("");
         button2.setDescricao("Orfanato que abriga atualmente cerca de 10 crianças de 0 a 4 anos.");
 
