@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.silascampos.acaosocial.MainActivity"
+    tools:context=".View.Main_Activity"
     style="@style/Base.Widget.AppCompat.Button.Borderless">
 
     <RelativeLayout
@@ -19,7 +19,7 @@
         android:background="@drawable/map_background"
         android:id="@+id/Map">
 
-        <com.example.silascampos.acaosocial.Instituicao
+        <com.example.silascampos.acaosocial.Model.Instituicao
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="30dp"
             android:layout_height="40dp"
@@ -31,7 +31,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
 
-        <com.example.silascampos.acaosocial.Instituicao
+        <com.example.silascampos.acaosocial.Model.Instituicao
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="30dp"
             android:layout_height="40dp"

@@ -1,4 +1,4 @@
-package com.example.silascampos.acaosocial;
+package com.example.silascampos.acaosocial.View;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -12,7 +12,11 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.silascampos.acaosocial.Fragments.PopupClickListener;
+import com.example.silascampos.acaosocial.Model.Instituicao;
+import com.example.silascampos.acaosocial.R;
+
+public class Main_Activity extends AppCompatActivity {
 
     PopupWindow popup = null;
 

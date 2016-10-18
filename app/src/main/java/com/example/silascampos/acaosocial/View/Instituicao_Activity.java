@@ -1,17 +1,15 @@
-package com.example.silascampos.acaosocial;
+package com.example.silascampos.acaosocial.View;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.silascampos.acaosocial.R;
 
 import java.io.File;
 
@@ -70,8 +68,9 @@ public class Instituicao_Activity extends AppCompatActivity {
         btn.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AgendarVisita.class);
-                //i.putExtra("nome",button2.getNome());
+                Intent i = new Intent(getApplicationContext(), AgendarVisita_Activity.class);
+                TextView wordToGuess = (TextView) findViewById(R.id.nome);
+                i.putExtra("nome",wordToGuess.getText());
                 startActivity(i);
             }});
     }

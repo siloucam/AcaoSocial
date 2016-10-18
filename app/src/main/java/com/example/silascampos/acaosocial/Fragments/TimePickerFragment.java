@@ -1,4 +1,4 @@
-package com.example.silascampos.acaosocial;
+package com.example.silascampos.acaosocial.Fragments;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -8,6 +8,8 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TimePicker;
+
+import com.example.silascampos.acaosocial.R;
 
 import java.util.Calendar;
 
@@ -33,11 +35,12 @@ public class TimePickerFragment extends DialogFragment
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         Log.d("myTag", "Entrou!");
-        Button btn = (Button)view.findViewById(R.id.timepick);
+        Button btn = (Button)getActivity().findViewById(R.id.timepick);
         if(btn==null){
             Log.d("myTag", "Não achou!");
         }else{
             Log.d("myTag", "Achou alguma coisa!");
+            btn.setText(hourOfDay + ":" + minute);
         }
     }
 }

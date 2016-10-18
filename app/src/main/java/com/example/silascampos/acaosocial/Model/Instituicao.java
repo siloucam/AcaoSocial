@@ -1,4 +1,4 @@
-package com.example.silascampos.acaosocial;
+package com.example.silascampos.acaosocial.Model;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -7,25 +7,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.silascampos.acaosocial.AgendarVisita">
+    tools:context=".View.AgendarVisita_Activity">
 
 
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="218dp"
-        android:id="@+id/calendarView"
-        android:layout_marginLeft="32dp"
+    <TextView
+        android:textColor="#2D4471"
+        android:paddingBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView5"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:paddingTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Calendar View Date Display"
-        android:id="@+id/date_display"
-        android:layout_below="@+id/calendarView"
+    <CalendarView
+        android:textColor="#2D4471"
+        android:layout_below="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/calendarView"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -33,20 +34,79 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Hora:"
+        android:text="Data: "
+        android:id="@+id/date_display"
+        android:layout_below="@+id/calendarView"
+        android:layout_toStartOf="@+id/timepick" />
+
+    <TextView
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Hora: "
         android:id="@+id/textView3"
         android:layout_below="@+id/date_display"
         android:layout_alignParentStart="true" />
 
     <Button
+        android:textColor="#2D4471"
+        android:width="150dp"
+        android:background="@drawable/customborder"
+        android:height="30dp"
         android:id="@+id/timepick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Time"
         android:onClick="showTimePickerDialog"
-        android:layout_alignTop="@+id/textView3"
+        android:layout_below="@+id/date_frame"
         android:layout_toEndOf="@+id/textView3" />
 
+    <Button
+        android:textColor="#2D4471"
+        android:background="@drawable/customborder"
+        android:height="30dp"
+        android:width="150dp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/date_frame"
+        android:layout_alignTop="@+id/date_display"
+        android:layout_toEndOf="@+id/date_display" />
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Quantas pessoas irão?"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/timepick"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:textColor="#2D4471"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:text="1"
+        android:onClick="clear" />
+
+    <Button
+        android:textColor="#2D4471"
+        android:height="30dp"
+        android:width="150dp"
+        android:background="@drawable/customborder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONFIRMAR"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
 
 
 </RelativeLayout>
