@@ -21,7 +21,6 @@ public class TimePickerFragment extends DialogFragment
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        Log.d("myTag", "This is my message");
         // Use the current time as the default values for the picker
         final Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
@@ -34,12 +33,9 @@ public class TimePickerFragment extends DialogFragment
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        Log.d("myTag", "Entrou!");
         Button btn = (Button)getActivity().findViewById(R.id.timepick);
         if(btn==null){
-            Log.d("myTag", "Não achou!");
         }else{
-            Log.d("myTag", "Achou alguma coisa!");
             btn.setText(hourOfDay + ":" + minute);
         }
     }

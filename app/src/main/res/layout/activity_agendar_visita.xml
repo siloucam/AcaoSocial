@@ -9,7 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".View.AgendarVisita_Activity">
 
-
     <TextView
         android:textColor="#2D4471"
         android:paddingBottom="10dp"
@@ -104,8 +103,9 @@
         android:layout_height="wrap_content"
         android:text="CONFIRMAR"
         android:id="@+id/button"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"
+        android:onClick="AgendarVisita"
         />
 
 
