@@ -11,7 +11,6 @@
 
     <TextView
         android:textColor="#2D4471"
-        android:paddingBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -21,10 +20,9 @@
         android:layout_centerHorizontal="true" />
 
     <CalendarView
-        android:textColor="#2D4471"
         android:layout_below="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
         android:id="@+id/calendarView"
         android:layout_centerHorizontal="true" />
 
@@ -92,7 +90,7 @@
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:text="1"
-        android:onClick="clear" />
+        />
 
     <Button
         android:textColor="#2D4471"

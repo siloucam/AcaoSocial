@@ -1,5 +1,6 @@
 package com.example.silascampos.acaosocial.View;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
@@ -54,15 +55,15 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         Button hora = (Button) findViewById(R.id.timepick);
         EditText n_pessoas = (EditText) findViewById(R.id.editText);
 
-        Log.d("myTag", "Start");
+        //Log.d("myTag", "Start");
         String t_i = i.getText().toString();
-        Log.d("myTag", t_i);
+        //Log.d("myTag", t_i);
         String t_data = data.getText().toString();
-        Log.d("myTag", t_data);
+        //Log.d("myTag", t_data);
         String t_hora = hora.getText().toString();
-        Log.d("myTag", t_hora);
+        //Log.d("myTag", t_hora);
         int n_pessoas_t = Integer.parseInt(n_pessoas.getText().toString());
-        Log.d("myTag", String.valueOf(n_pessoas_t));
+        //Log.d("myTag", String.valueOf(n_pessoas_t));
 
         Visita visita = new Visita(t_i,t_data,t_hora,n_pessoas_t);
 
@@ -80,6 +81,7 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 //Toast.makeText(AgendarVisita_Activity.this, "positivo=" + arg1, Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
         //cria o AlertDialog

@@ -4,6 +4,7 @@ package com.example.silascampos.acaosocial.Model;
  * Created by Silas on 18/10/2016.
  */
 public class Visita {
+    int ID;
     String instituicao;
     String data_txt;
     String hora_txt;
