@@ -2,9 +2,6 @@ package com.example.silascampos.acaosocial.db;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by novaes on 14/10/16.
- */
 public final class Contracts {
 
         public static abstract class Instituicao implements BaseColumns {
@@ -24,8 +21,7 @@ public final class Contracts {
             public static final String instituicao = "instituicao";
             public static final String data_txt = "data";
             public static final String hora_txt = "hora";
-            public static final int n_pessoas = 0;
+            public static final String n_pessoas = "0";
             public static final int ID = 0;
         }
-
 }

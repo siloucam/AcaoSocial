@@ -33,6 +33,28 @@ public class DAO {
         db.close();
     }
 
+    public void putVisita(String instituicao, String data_txt, String hora_txt, int n){
+        this.open("write");
+
+        ContentValues values = new ContentValues();
+
+        values.put(Contracts.Visita.instituicao, instituicao);
+        values.put(Contracts.Visita.data_txt, data_txt);
+        values.put(Contracts.Visita.hora_txt, hora_txt);
+        values.put(Contracts.Visita.n_pessoas, n);
+
+        long newRowId;
+        newRowId = db.insert(
+                Contracts.Visita.table,
+                null,
+                values);
+
+        this.close();
+    }
+
+
+
+
     /*
     public void putLocation(double latitude, double longitude,String label, int category){
         this.open("write");

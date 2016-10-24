@@ -16,13 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".View.Main_Activity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".Fragments.Popup_Activity" />
         <activity android:name=".View.Instituicao_Activity" />
@@ -42,9 +40,6 @@
 
         <activity
             android:name=".View.MapsActivity">
-
-
-
 
 
         </activity>

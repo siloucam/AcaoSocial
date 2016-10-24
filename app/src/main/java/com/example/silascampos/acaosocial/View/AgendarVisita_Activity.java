@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.silascampos.acaosocial.Model.Visita;
 import com.example.silascampos.acaosocial.R;
 import com.example.silascampos.acaosocial.Fragments.TimePickerFragment;
+import com.example.silascampos.acaosocial.db.DAO;
 
 @SuppressWarnings("deprecation")
 public class AgendarVisita_Activity extends AppCompatActivity{
@@ -55,22 +56,18 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         Button hora = (Button) findViewById(R.id.timepick);
         EditText n_pessoas = (EditText) findViewById(R.id.editText);
 
-        //Log.d("myTag", "Start");
         String t_i = i.getText().toString();
-        //Log.d("myTag", t_i);
         String t_data = data.getText().toString();
-        //Log.d("myTag", t_data);
         String t_hora = hora.getText().toString();
-        //Log.d("myTag", t_hora);
         int n_pessoas_t = Integer.parseInt(n_pessoas.getText().toString());
-        //Log.d("myTag", String.valueOf(n_pessoas_t));
 
-        Visita visita = new Visita(t_i,t_data,t_hora,n_pessoas_t);
+        DAO dao = new DAO(getApplicationContext());
+        dao.putVisita(t_i,t_data,t_hora,n_pessoas_t);
 
-        exemplo_simples();
+        dialog_confirmacao();
     }
 
-    private void exemplo_simples() {
+    private void dialog_confirmacao() {
         //Cria o gerador do AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //define o titulo
