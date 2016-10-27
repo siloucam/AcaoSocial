@@ -9,6 +9,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.silascampos.acaosocial.Model.Visita;
+
 import java.util.ArrayList;
 
 public class DAO {
@@ -33,7 +35,7 @@ public class DAO {
         db.close();
     }
 
-    public void putVisita(String instituicao, String data_txt, String hora_txt, int n){
+    public void putVisita(String instituicao, String data_txt, String hora_txt, String n){
         this.open("write");
 
         ContentValues values = new ContentValues();
@@ -52,7 +54,65 @@ public class DAO {
         this.close();
     }
 
+    public void putInstituicao(String nome, String foto, String descricao, String endereco, String doacoes, String contato, String responsavel){
+        this.open("write");
 
+        ContentValues values = new ContentValues();
+
+        values.put(Contracts.Instituicao.nome, nome);
+        values.put(Contracts.Instituicao.foto, foto);
+        values.put(Contracts.Instituicao.descricao, descricao);
+        values.put(Contracts.Instituicao.endereco, endereco);
+        values.put(Contracts.Instituicao.doacoes, doacoes);
+        values.put(Contracts.Instituicao.contato, contato);
+        values.put(Contracts.Instituicao.responsavel, responsavel);
+
+        long newRowId;
+        newRowId = db.insert(
+                Contracts.Instituicao.table,
+                null,
+                values);
+
+        this.close();
+    }
+
+
+    public ArrayList<Visita>  getVisitas(String nome){
+        this.open("read");
+
+        String[] projection = {
+                Contracts.Visita._ID,
+                Contracts.Visita.instituicao,
+                Contracts.Visita.data_txt,
+                Contracts.Visita.hora_txt,
+                Contracts.Visita.n_pessoas
+        };
+
+        String[] arguments = {nome};
+
+        String sortOrder =
+                Contracts.Visita.data_txt+ " ASC";
+
+        Cursor c = db.query(
+                Contracts.Visita.table,  // The table to query
+                projection,                               // The columns to return
+                Contracts.Visita.instituicao,             // The columns for the WHERE clause
+                arguments,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+        ArrayList<Visita> List = new ArrayList<Visita>();
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            Visita v = new Visita(c.getString(1),c.getString(2),c.getString(3),c.getInt(4));
+            List.add(v);
+        }
+
+        this.close();
+
+        return List;
+    }
 
 
     /*

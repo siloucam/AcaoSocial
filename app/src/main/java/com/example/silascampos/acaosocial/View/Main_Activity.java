@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.silascampos.acaosocial.Fragments.PopupClickListener;
 import com.example.silascampos.acaosocial.Model.Instituicao;
 import com.example.silascampos.acaosocial.R;
+import com.example.silascampos.acaosocial.db.DAO;
 
 public class Main_Activity extends AppCompatActivity {
 
@@ -33,6 +34,9 @@ public class Main_Activity extends AppCompatActivity {
         button1.setFoto("logo_malonso.png");
         button1.setResponsavel("Frei Marcos");
         button1.setDescricao("Lar de idosos. Abriga atualmente cerca de 10 a 15 idosos.");
+
+        DAO dao = new DAO(getApplicationContext());
+        dao.putInstituicao(button1.getNome(),button1.getFoto(),button1.getDescricao(),button1.getEndereco(),button1.getDoacoes(),button1.getContato(),button1.getResponsavel());
 
 
         button1.setOnClickListener(new PopupClickListener(popup){
@@ -84,6 +88,8 @@ public class Main_Activity extends AppCompatActivity {
         button2.setFoto("logo_orfanato.png");
         button2.setResponsavel("");
         button2.setDescricao("Orfanato que abriga atualmente cerca de 10 crianças de 0 a 4 anos.");
+
+        dao.putInstituicao(button2.getNome(),button2.getFoto(),button2.getDescricao(),button2.getEndereco(),button2.getDoacoes(),button2.getContato(),button2.getResponsavel());
 
         button2.setOnClickListener(new PopupClickListener(popup){
 

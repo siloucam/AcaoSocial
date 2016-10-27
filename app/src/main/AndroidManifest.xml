@@ -38,11 +38,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".View.MapsActivity">
-
-
-        </activity>
+        <activity android:name=".View.MapsActivity"></activity>
+        <activity android:name=".View.MenuAgendar"></activity>
     </application>
 
 </manifest>

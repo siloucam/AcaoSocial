@@ -59,7 +59,7 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         String t_i = i.getText().toString();
         String t_data = data.getText().toString();
         String t_hora = hora.getText().toString();
-        int n_pessoas_t = Integer.parseInt(n_pessoas.getText().toString());
+        String n_pessoas_t = n_pessoas.getText().toString();
 
         DAO dao = new DAO(getApplicationContext());
         dao.putVisita(t_i,t_data,t_hora,n_pessoas_t);

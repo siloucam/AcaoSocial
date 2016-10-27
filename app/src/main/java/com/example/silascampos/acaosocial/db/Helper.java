@@ -22,7 +22,7 @@ public class Helper extends SQLiteOpenHelper {
 
     public static final String SQL_CREATE_INSTITUICAO_TABLE =
             "CREATE TABLE " + Contracts.Instituicao.table + " (" +
-                    Contracts.Instituicao.ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    Contracts.Instituicao._ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     Contracts.Instituicao.foto + TEXT_TYPE + COMMA_SEP +
                     Contracts.Instituicao.nome + TEXT_TYPE + COMMA_SEP +
                     Contracts.Instituicao.descricao + TEXT_TYPE + COMMA_SEP +
@@ -34,10 +34,10 @@ public class Helper extends SQLiteOpenHelper {
 
     public static final String SQL_CREATE_VISITAS_TABLE =
             "CREATE TABLE " + Contracts.Visita.table + " (" +
-                    Contracts.Visita.ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    Contracts.Visita._ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     Contracts.Visita.data_txt + TEXT_TYPE + COMMA_SEP +
                     Contracts.Visita.hora_txt + TEXT_TYPE + COMMA_SEP +
-                    Contracts.Visita.n_pessoas + INTEGER_TYPE + COMMA_SEP +
+                    Contracts.Visita.n_pessoas + TEXT_TYPE + COMMA_SEP +
                     Contracts.Visita.instituicao + TEXT_TYPE +
                     " )";
 

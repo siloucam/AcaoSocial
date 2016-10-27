@@ -68,7 +68,7 @@ public class Instituicao_Activity extends AppCompatActivity {
         btn.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AgendarVisita_Activity.class);
+                Intent i = new Intent(getApplicationContext(), MenuAgendar.class);
                 TextView wordToGuess = (TextView) findViewById(R.id.nome);
                 i.putExtra("nome",wordToGuess.getText());
                 startActivity(i);
