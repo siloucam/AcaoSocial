@@ -77,7 +77,7 @@ public class DAO {
     }
 
 
-    public ArrayList<Visita>  getVisitas(String nome){
+    public Cursor getVisitas(String nome){
         this.open("read");
 
         String[] projection = {
@@ -93,26 +93,23 @@ public class DAO {
         String sortOrder =
                 Contracts.Visita.data_txt+ " ASC";
 
+        String selection =  Contracts.Visita.instituicao + "=?";
+        String[] selectionArgs = new String[1];
+        selectionArgs[0] = nome;
+
+
         Cursor c = db.query(
-                Contracts.Visita.table,  // The table to query
+                Contracts.Visita.table,                   // The table to query
                 projection,                               // The columns to return
-                Contracts.Visita.instituicao,             // The columns for the WHERE clause
-                arguments,                            // The values for the WHERE clause
+                selection,             // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
                 null,                                     // don't group the rows
                 null,                                     // don't filter by row groups
                 sortOrder                                 // The sort order
         );
-
-        ArrayList<Visita> List = new ArrayList<Visita>();
-        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            Visita v = new Visita(c.getString(1),c.getString(2),c.getString(3),c.getInt(4));
-            List.add(v);
-        }
-
-        this.close();
-
-        return List;
+        return c;
     }
+
 
 
     /*

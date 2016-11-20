@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20dp"
+        android:id="@+id/tx_item"
+        android:layout_marginLeft="0dp"
+        android:text="data"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView7"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20dp"
+        android:id="@+id/tx_item2"
+        android:layout_marginLeft="0dp"
+        android:text="hora"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tx_item"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Data: "
+        android:id="@+id/textView7"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Número de Pessoas:"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20dp"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/tx_item2"
+        android:layout_toEndOf="@+id/textView8"
+        android:text="n_pessoas"
+        android:paddingStart="10dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:background="@drawable/customborder3"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Solicitar Participação"
+        android:id="@+id/button4"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

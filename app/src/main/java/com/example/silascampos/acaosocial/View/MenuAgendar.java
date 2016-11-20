@@ -5,15 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.silascampos.acaosocial.Model.Visita;
 import com.example.silascampos.acaosocial.R;
+import com.example.silascampos.acaosocial.db.Contracts;
 import com.example.silascampos.acaosocial.db.DAO;
 
 import java.util.ArrayList;
 
 public class MenuAgendar extends AppCompatActivity {
+    String value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,7 @@ public class MenuAgendar extends AppCompatActivity {
         setContentView(R.layout.activity_menu_agendar);
 
         Bundle extras = getIntent().getExtras();
-        String value = extras.getString("nome");
+        value = extras.getString("nome");
         TextView wordToGuess = (TextView) findViewById(R.id.textView5);
         wordToGuess.setText(value);
 
@@ -39,15 +43,23 @@ public class MenuAgendar extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        Bundle extras = getIntent().getExtras();
-        String value = extras.getString("nome");
-
         DAO dao = new DAO(getApplicationContext());
-        ArrayList<Visita> visitas = dao.getVisitas(value);
+        dao.open("read");
 
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.item_row, dao.getVisitas(value),
+                new String[]{"data","hora","n_pessoas","_id"}, new int[] { R.id.tx_item,R.id.tx_item2,R.id.editText2});
+
+        ListView listView = (ListView) findViewById(R.id.listView);
+
+        listView.setAdapter(adapter);
+
+        dao.close();
+
+        /*
         for(Visita v: visitas){
 
         }
+        */
 
     }
 }

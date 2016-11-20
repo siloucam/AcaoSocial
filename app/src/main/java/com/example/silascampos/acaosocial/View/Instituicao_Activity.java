@@ -18,7 +18,7 @@ public class Instituicao_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instituicao_);
+        setContentView(R.layout.activity_instituicao);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

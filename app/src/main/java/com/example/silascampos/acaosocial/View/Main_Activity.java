@@ -1,6 +1,8 @@
 package com.example.silascampos.acaosocial.View;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +13,14 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.silascampos.acaosocial.Fragments.PopupClickListener;
 import com.example.silascampos.acaosocial.Model.Instituicao;
 import com.example.silascampos.acaosocial.R;
 import com.example.silascampos.acaosocial.db.DAO;
+import com.sa90.materialarcmenu.ArcMenu;
+import com.sa90.materialarcmenu.StateChangeListener;
 
 public class Main_Activity extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class Main_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //Configure Markers and POPUP on button1
         final Instituicao button1 = (Instituicao)findViewById(R.id.button1);
@@ -141,5 +147,16 @@ public class Main_Activity extends AppCompatActivity {
             }
         });
 
+        final ArcMenu arcmenu = (ArcMenu)findViewById(R.id.arcMenu);
+        arcmenu.setStateChangeListener(new StateChangeListener(){
+            @Override
+            public void onMenuOpened() {
+                //Snackbar.make(arcmenu, "Menu Opened", Snackbar.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onMenuClosed() {
+
+            }
+        });
     }
 };
