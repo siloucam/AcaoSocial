@@ -4,11 +4,24 @@ package com.example.silascampos.acaosocial.db;
  * Created by novaes on 14/10/16.
  */
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+import android.util.Log;
+
+import com.example.silascampos.acaosocial.R;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class Helper extends SQLiteOpenHelper {
+
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "Maps.db";
 
@@ -49,11 +62,60 @@ public class Helper extends SQLiteOpenHelper {
 
     public Helper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        Log.d("myTag", String.valueOf("Salvar Imagens"));
+        //String folder = "/sdcard/Pictures/MyAppFolder";
+
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), R.drawable.logo_malonso);
+        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        Log.d("myTag", String.valueOf(extStorageDirectory));
+        File file = new File(extStorageDirectory, "logo_malonso.png");
+        FileOutputStream outStream = null;
+        try {
+            outStream = new FileOutputStream(file);
+            Log.d("myTag", String.valueOf("Salvou"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+        try {
+            outStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            outStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        bm = BitmapFactory.decodeResource(context.getResources(), R.drawable.logo_orfanato);
+        file = new File(extStorageDirectory, "logo_orfanato.png");
+        try {
+            outStream = new FileOutputStream(file);
+            Log.d("myTag", String.valueOf("Salvou"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+        try {
+            outStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            outStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(this.SQL_CREATE_INSTITUICAO_TABLE);
         db.execSQL(this.SQL_CREATE_VISITAS_TABLE);
+
+
+
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

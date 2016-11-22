@@ -22,6 +22,8 @@ import com.example.silascampos.acaosocial.db.DAO;
 import com.sa90.materialarcmenu.ArcMenu;
 import com.sa90.materialarcmenu.StateChangeListener;
 
+import java.io.IOException;
+
 public class Main_Activity extends AppCompatActivity {
 
     PopupWindow popup = null;
@@ -41,7 +43,12 @@ public class Main_Activity extends AppCompatActivity {
         button1.setResponsavel("Frei Marcos");
         button1.setDescricao("Lar de idosos. Abriga atualmente cerca de 10 a 15 idosos.");
 
-        DAO dao = new DAO(getApplicationContext());
+        DAO dao = null;
+        try {
+            dao = new DAO(getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         dao.putInstituicao(button1.getNome(),button1.getFoto(),button1.getDescricao(),button1.getEndereco(),button1.getDoacoes(),button1.getContato(),button1.getResponsavel());
 
 

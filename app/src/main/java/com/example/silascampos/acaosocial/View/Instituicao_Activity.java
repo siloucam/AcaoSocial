@@ -1,7 +1,10 @@
 package com.example.silascampos.acaosocial.View;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,18 +45,22 @@ public class Instituicao_Activity extends AppCompatActivity {
             File imageFile;
             ImageView foto = (ImageView) findViewById(R.id.foto);
 
-            /*
-            File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES.toString());
-            imageFile = new File(picsDir,value);
-            Bitmap mImageBitmap = BitmapFactory.decodeFile(String.valueOf(imageFile));
-            Bitmap scaled = Bitmap.createScaledBitmap(mImageBitmap, 100, 100, true);
-            foto.setImageBitmap(scaled);*/
 
+            //File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES.toString());
+            File extStorageDirectory = Environment.getExternalStorageDirectory();
+
+            imageFile = new File(extStorageDirectory,value);
+            Bitmap mImageBitmap = BitmapFactory.decodeFile(String.valueOf(imageFile));
+            Bitmap scaled = Bitmap.createScaledBitmap(mImageBitmap, 600, 250, true);
+            foto.setImageBitmap(scaled);
+
+            /*
             if(value.equals("logo_malonso.png")){
                 foto.setBackgroundResource(R.drawable.logo_malonso);
             }else if(value.equals("logo_orfanato.png")){
                 foto.setBackgroundResource(R.drawable.logo_orfanato);
-            }
+            }*/
+
         }
 
         findViewById(R.id.call_button).setOnClickListener(new View.OnClickListener() {

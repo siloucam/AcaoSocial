@@ -14,6 +14,7 @@ import com.example.silascampos.acaosocial.R;
 import com.example.silascampos.acaosocial.db.Contracts;
 import com.example.silascampos.acaosocial.db.DAO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MenuAgendar extends AppCompatActivity {
@@ -43,7 +44,12 @@ public class MenuAgendar extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
 
-        DAO dao = new DAO(getApplicationContext());
+        DAO dao = null;
+        try {
+            dao = new DAO(getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         dao.open("read");
 
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.item_row, dao.getVisitas(value),

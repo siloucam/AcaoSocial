@@ -18,6 +18,8 @@ import com.example.silascampos.acaosocial.R;
 import com.example.silascampos.acaosocial.Fragments.TimePickerFragment;
 import com.example.silascampos.acaosocial.db.DAO;
 
+import java.io.IOException;
+
 @SuppressWarnings("deprecation")
 public class AgendarVisita_Activity extends AppCompatActivity{
     CalendarView calendarView;
@@ -61,7 +63,12 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         String t_hora = hora.getText().toString();
         String n_pessoas_t = n_pessoas.getText().toString();
 
-        DAO dao = new DAO(getApplicationContext());
+        DAO dao = null;
+        try {
+            dao = new DAO(getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         dao.putVisita(t_i,t_data,t_hora,n_pessoas_t);
 
         dialog_confirmacao();

@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.silascampos.acaosocial.Model.Visita;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DAO {
@@ -19,7 +20,7 @@ public class DAO {
     SQLiteDatabase db;
     Helper mDbHelper;
 
-    public DAO(Context context){
+    public DAO(Context context) throws IOException {
         mDbHelper = new Helper(context);
     }
 
