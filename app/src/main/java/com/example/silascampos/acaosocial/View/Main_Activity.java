@@ -19,12 +19,13 @@ import com.example.silascampos.acaosocial.Fragments.PopupClickListener;
 import com.example.silascampos.acaosocial.Model.Instituicao;
 import com.example.silascampos.acaosocial.R;
 import com.example.silascampos.acaosocial.db.DAO;
+import com.facebook.login.LoginManager;
 import com.sa90.materialarcmenu.ArcMenu;
 import com.sa90.materialarcmenu.StateChangeListener;
 
 import java.io.IOException;
 
-public class Main_Activity extends AppCompatActivity {
+public class Main_Activity extends Lifecycle {
 
     PopupWindow popup = null;
 
@@ -165,5 +166,9 @@ public class Main_Activity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void OpenCard(View v){
+        callCard();
     }
 };

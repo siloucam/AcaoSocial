@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.silascampos.acaosocial.R;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
 /*
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,8 +15,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 */
-<<<<<<< HEAD
-
 //public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 public class MapsActivity extends FragmentActivity{
 

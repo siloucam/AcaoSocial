@@ -1,11 +1,11 @@
 <resources>
+    <string name="facebook_app_id">608543075996802</string>
     <string name="app_name">AcaoSocial</string>
     <string name="abrir">ABRIR</string>
     <string name="asilo_de_vit_ria">Asilo de Vitória</string>
     <string name="logo">Logo</string>
     <string name="title_activity_instituicao_">Instituicao_Activity</string>
     <string name="large_text">
-    <string name="facebook_app_id">b70e309fac406b00ab5e3fb063c29f7a</string>
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
