@@ -1,5 +1,6 @@
 package com.example.silascampos.acaosocial.View;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.silascampos.acaosocial.R;
+import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -72,6 +74,18 @@ public class Login extends Lifecycle {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     };
 
+    protected void onResume(){
+        super.onResume();
+        Log.i("myTag","Resumou");
+        if(isLoggedIn()){
+
+            Intent it = new Intent(getApplicationContext(), Main_Activity.class);
+            startActivity(it);
+        }else{
+            Log.i("myTag","Deslogado?");
+        }
+    }
+
     public void cleanPrefs() {
         SharedPreferences.Editor ed = userPrefs.edit();
         ed.clear();
@@ -79,6 +93,11 @@ public class Login extends Lifecycle {
         ed = sysPrefs.edit();
         ed.clear();
         ed.commit();
+    }
+
+    public boolean isLoggedIn() {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        return accessToken != null;
     }
 
 

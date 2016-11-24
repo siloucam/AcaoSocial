@@ -60,26 +60,12 @@ public class Card extends Lifecycle {
                                 user.setPhoto_url(photo_url);
                                 new DownloadImageTask(photo).execute(photo_url);
 
-                                TextView tx_id = (TextView) findViewById(R.id.tx_id);
-                                TextView tx_first_name = (TextView) findViewById(R.id.tx_first_name);
-                                TextView tx_last_name = (TextView) findViewById(R.id.tx_last_name);
-                                TextView tx_email = (TextView) findViewById(R.id.tx_email);
-                                TextView tx_gender = (TextView) findViewById(R.id.tx_gender);
-                                TextView tx_birthday = (TextView) findViewById(R.id.tx_birthday);
-
-                                tx_id.setText(object.optString("id"));
-                                tx_first_name.setText(object.optString("first_name"));
-                                tx_last_name.setText(object.optString("middle_name")+' '+object.optString("last_name"));
-                                tx_email.setText(object.optString("email"));
-                                tx_gender.setText(object.optString("gender"));
-                                tx_birthday.setText(object.optString("birthday"));
-
-                                user.setId(tx_id.getText().toString());
-                                user.setFirst_name(tx_first_name.getText().toString());
-                                user.setLast_name(tx_last_name.getText().toString());
-                                user.setEmail(tx_email.getText().toString());
-                                user.setGender(tx_gender.getText().toString());
-                                user.setBirthday(tx_birthday.getText().toString());
+                                user.setId(object.optString("id"));
+                                user.setFirst_name(object.optString("first_name"));
+                                user.setLast_name(object.optString("middle_name")+' '+object.optString("last_name"));
+                                user.setEmail(object.optString("email"));
+                                user.setGender(object.optString("gender"));
+                                user.setBirthday(object.optString("birthday"));
 
                                 user.updateUser(userPrefs,context);
                     }
@@ -106,6 +92,10 @@ public class Card extends Lifecycle {
 
     public void logout(View v){
         LoginManager.getInstance().logOut();
+
+        Intent it = new Intent(getApplicationContext(), Login.class);
+        startActivity(it);
+
         finish();
     }
 

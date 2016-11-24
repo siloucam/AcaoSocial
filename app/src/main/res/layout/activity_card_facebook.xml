@@ -11,96 +11,49 @@
     tools:context="com.example.silascampos.acaosocial.View.Info">
 
     <TextView
+        android:textColorHint="#2D4471"
+        android:textColor="#2D4471"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:selectAllOnFocus="true"
         android:id="@+id/tx_name"
         android:hint="Name"
         android:textSize="30dp" />
-
-
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/photo" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_id"
-        android:hint="Name"
-        android:textSize="30dp" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_first_name"
-        android:hint="first name"
-        android:textSize="30dp" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_last_name"
-        android:hint="last name"
-        android:textSize="30dp" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_email"
-        android:hint="email"
-        android:textSize="30dp" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_gender"
-        android:hint="gender"
-        android:textSize="30dp" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:selectAllOnFocus="true"
-        android:id="@+id/tx_birthday"
-        android:hint="birthday"
-        android:textSize="30dp" />
-
     <Button
+        android:textColor="#2D4471"
+        android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Minhas Visitas"
         android:id="@+id/bt_visitas"
-        android:textSize="30dp"
         android:onClick="updateUser"
         android:background="@drawable/customborder"
         />
 
     <Button
+        android:textColor="#2D4471"
+        android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="MEUS GRUPOS"
         android:id="@+id/bt_grupos"
-        android:textSize="30dp"
         android:onClick="updateUser"
         android:background="@drawable/customborder"
         />
 
     <Button
+        android:layout_marginTop="10dp"
+        android:textColor="#2D4471"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="LogOut"
         android:id="@+id/bt_voltar"
-        android:textSize="30dp"
         android:onClick="logout"
         android:background="@drawable/customborder"
         />
