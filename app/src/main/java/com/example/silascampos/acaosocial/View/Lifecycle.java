@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.example.silascampos.acaosocial.Model.User;
+
 /**
  * Created by novaes on 8/26/16.
  */

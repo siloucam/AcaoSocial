@@ -1,4 +1,4 @@
-package com.example.silascampos.acaosocial.View;
+package com.example.silascampos.acaosocial.Model;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

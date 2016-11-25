@@ -45,10 +45,6 @@
 
         <activity android:name=".View.MapsActivity" />
         <activity android:name=".View.MenuAgendar" />
-        <activity
-            android:name=".View.Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".View.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
