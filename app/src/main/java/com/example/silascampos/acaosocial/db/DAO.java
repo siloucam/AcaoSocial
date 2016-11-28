@@ -9,6 +9,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.silascampos.acaosocial.Model.User;
 import com.example.silascampos.acaosocial.Model.Visita;
 
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class DAO {
         db.close();
     }
 
-    public void putVisita(String instituicao, String data_txt, String hora_txt, String n){
+    public void putVisita(String instituicao, String data_txt, String hora_txt, String n, long user_id){
         this.open("write");
 
         ContentValues values = new ContentValues();
@@ -45,6 +46,7 @@ public class DAO {
         values.put(Contracts.Visita.data_txt, data_txt);
         values.put(Contracts.Visita.hora_txt, hora_txt);
         values.put(Contracts.Visita.n_pessoas, n);
+        values.put(Contracts.Visita.user_id, user_id);
 
         long newRowId;
         newRowId = db.insert(
@@ -86,7 +88,8 @@ public class DAO {
                 Contracts.Visita.instituicao,
                 Contracts.Visita.data_txt,
                 Contracts.Visita.hora_txt,
-                Contracts.Visita.n_pessoas
+                Contracts.Visita.n_pessoas,
+                Contracts.Visita.user_id
         };
 
         String[] arguments = {nome};
@@ -110,6 +113,139 @@ public class DAO {
         );
         return c;
     }
+
+    public Cursor getVisitasByUser(long user_id){
+        this.open("read");
+
+        String id = Integer.toString((int) user_id);
+
+        String[] projection = {
+                Contracts.Visita._ID,
+                Contracts.Visita.instituicao,
+                Contracts.Visita.data_txt,
+                Contracts.Visita.hora_txt,
+                Contracts.Visita.n_pessoas,
+                Contracts.Visita.user_id
+        };
+
+        String[] arguments = {id};
+
+        String sortOrder =
+                Contracts.Visita.data_txt+ " ASC";
+
+        String selection =  Contracts.Visita.user_id + "=?";
+        String[] selectionArgs = new String[1];
+        selectionArgs[0] = id;
+
+
+        Cursor c = db.query(
+                Contracts.Visita.table,                   // The table to query
+                projection,                               // The columns to return
+                selection,             // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+        return c;
+    }
+
+    public long putUser(String name, String email, String photo_url, String password, String first_name, String last_name, String gender, String birthday){
+        this.open("write");
+
+        ContentValues values = new ContentValues();
+
+        values.put(Contracts.User.name, name);
+        values.put(Contracts.User.email, email);
+        values.put(Contracts.User.photo_url, photo_url);
+        values.put(Contracts.User.password, password);
+        values.put(Contracts.User.first_name, first_name);
+        values.put(Contracts.User.last_name, last_name);
+        values.put(Contracts.User.gender, gender);
+        values.put(Contracts.User.birthday, birthday);
+
+        long newRowId;
+        newRowId = db.insert(
+                Contracts.User.table,
+                null,
+                values);
+
+        this.close();
+        return newRowId;
+    }
+
+    public User getUser(String id){
+        this.open("read");
+
+        String[] projection = {
+                Contracts.User.id,
+                Contracts.User.name,
+                Contracts.User.photo_url,
+        };
+
+        String[] arguments = {id};
+
+        String sortOrder =
+                Contracts.Visita.data_txt+ " ASC";
+
+        String selection =  Contracts.User.id + "=?";
+        String[] selectionArgs = new String[1];
+        selectionArgs[0] = id;
+
+        Cursor c = db.query(
+                Contracts.User.table,                   // The table to query
+                projection,                               // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+        if(c!=null) {
+            User user = new User(c.getLong(1), c.getString(2), c.getString(3));
+            return user;
+        }else{
+            return null;
+        }
+    }
+
+    public User getUserByName(String name){
+        this.open("read");
+
+        String[] projection = {
+                Contracts.User.id,
+                Contracts.User.name,
+                Contracts.User.photo_url,
+        };
+
+        String[] arguments = {name};
+
+        String sortOrder =
+                Contracts.Visita.data_txt+ " ASC";
+
+        String selection =  Contracts.User.name + "=?";
+        String[] selectionArgs = new String[1];
+        selectionArgs[0] = name;
+
+        Cursor c = db.query(
+                Contracts.User.table,                   // The table to query
+                projection,                               // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+        if(c!=null) {
+            User user = new User(c.getLong(1), c.getString(2), c.getString(3));
+            return user;
+        }else{
+            return null;
+        }
+    }
+
 
 
 

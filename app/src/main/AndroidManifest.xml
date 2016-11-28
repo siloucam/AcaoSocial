@@ -13,17 +13,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Main_Activity">
-
-        </activity>
+        <activity android:name=".View.Main_Activity" />
         <activity android:name=".Fragments.Popup_Activity" />
         <activity android:name=".View.Instituicao_Activity" />
         <activity android:name=".View.AgendarVisita_Activity" />
@@ -53,10 +49,12 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name=".View.VisitaActivity" />
+        <activity android:name=".View.MinhasVisitas"></activity>
     </application>
 
 </manifest>
-

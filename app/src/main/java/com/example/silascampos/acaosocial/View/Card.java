@@ -57,22 +57,9 @@ public class Card extends Lifecycle {
                                 ImageView photo = (ImageView) findViewById(R.id.photo);
 
                                 tx_name.setText(name);
-                                user.setPhoto_url(photo_url);
                                 new DownloadImageTask(photo).execute(photo_url);
-
-                                user.setId(object.optString("id"));
-                                user.setFirst_name(object.optString("first_name"));
-                                user.setLast_name(object.optString("middle_name")+' '+object.optString("last_name"));
-                                user.setEmail(object.optString("email"));
-                                user.setGender(object.optString("gender"));
-                                user.setBirthday(object.optString("birthday"));
-
-                                user.updateUser(userPrefs,context);
                     }
                 });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id, first_name, middle_name, last_name, email,gender, birthday");
-        request.setParameters(parameters);
         request.executeAsync();
     }
 

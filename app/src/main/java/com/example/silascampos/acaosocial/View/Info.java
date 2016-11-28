@@ -50,7 +50,7 @@ public class Info extends Lifecycle {
         ed.putString("password", tx_password.getText().toString());
         ed.commit();
 
-        Toast.makeText(getApplicationContext(),"Information Saved",Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"Information Saved",Toast.LENGTH_LONG).show();
 
         finish();
     }

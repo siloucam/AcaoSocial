@@ -51,7 +51,21 @@ public class Helper extends SQLiteOpenHelper {
                     Contracts.Visita.data_txt + TEXT_TYPE + COMMA_SEP +
                     Contracts.Visita.hora_txt + TEXT_TYPE + COMMA_SEP +
                     Contracts.Visita.n_pessoas + TEXT_TYPE + COMMA_SEP +
+                    Contracts.Visita.user_id + INTEGER_TYPE + COMMA_SEP +
                     Contracts.Visita.instituicao + TEXT_TYPE +
+                    " )";
+
+    public static final String SQL_CREATE_USER_TABLE =
+            "CREATE TABLE " + Contracts.User.table + " (" +
+                    Contracts.User.id + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    Contracts.User.name + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.email + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.first_name + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.last_name + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.birthday + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.gender + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.password + TEXT_TYPE + COMMA_SEP +
+                    Contracts.User.photo_url + TEXT_TYPE +
                     " )";
 
     public static final String SQL_DELETE_INSTITUICAO =
@@ -59,6 +73,9 @@ public class Helper extends SQLiteOpenHelper {
 
     public static final String SQL_DELETE_VISITAS =
             "DROP TABLE IF EXISTS " + Contracts.Visita.table;
+
+    public static final String SQL_DELETE_USER =
+            "DROP TABLE IF EXISTS " + Contracts.User.table;
 
     public Helper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -113,14 +130,13 @@ public class Helper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(this.SQL_CREATE_INSTITUICAO_TABLE);
         db.execSQL(this.SQL_CREATE_VISITAS_TABLE);
-
-
-
+        db.execSQL(this.SQL_CREATE_USER_TABLE);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(this.SQL_DELETE_INSTITUICAO);
         db.execSQL(this.SQL_DELETE_VISITAS);
+        db.execSQL(this.SQL_DELETE_USER);
         onCreate(db);
     }
 

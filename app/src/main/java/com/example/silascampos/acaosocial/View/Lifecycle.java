@@ -78,13 +78,8 @@ public class Lifecycle extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void callInfo(){
-        Intent it = new Intent(this, Info.class);
-        startActivity(it);
-    }
-
-    public void callSaveText(){
-        Intent it = new Intent(this, SaveText.class);
+    public void callMinhasVisitas(View v){
+        Intent it = new Intent(this, MinhasVisitas.class);
         startActivity(it);
     }
 

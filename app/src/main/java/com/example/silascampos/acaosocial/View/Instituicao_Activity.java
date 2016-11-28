@@ -18,6 +18,8 @@ import java.io.File;
 
 public class Instituicao_Activity extends AppCompatActivity {
 
+    String photo_value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class Instituicao_Activity extends AppCompatActivity {
             value = extras.getString("descricao");
             wordToGuess = (TextView) findViewById(R.id.descricao);
             wordToGuess.setText(value);
-            value = extras.getString("foto");
+            photo_value = extras.getString("foto");
 
             File imageFile;
             ImageView foto = (ImageView) findViewById(R.id.foto);
@@ -49,7 +51,7 @@ public class Instituicao_Activity extends AppCompatActivity {
             //File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES.toString());
             File extStorageDirectory = Environment.getExternalStorageDirectory();
 
-            imageFile = new File(extStorageDirectory,value);
+            imageFile = new File(extStorageDirectory,photo_value);
             Bitmap mImageBitmap = BitmapFactory.decodeFile(String.valueOf(imageFile));
             Bitmap scaled = Bitmap.createScaledBitmap(mImageBitmap, 600, 250, true);
             foto.setImageBitmap(scaled);
@@ -78,6 +80,7 @@ public class Instituicao_Activity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), MenuAgendar.class);
                 TextView wordToGuess = (TextView) findViewById(R.id.nome);
                 i.putExtra("nome",wordToGuess.getText());
+                i.putExtra("foto",photo_value);
                 startActivity(i);
             }});
     }

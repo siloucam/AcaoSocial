@@ -12,7 +12,7 @@ public class User {
     String email;
     String photo_url;
     String password;
-    String id;
+    long id;
     String first_name;
     String last_name;
     String gender;
@@ -24,19 +24,17 @@ public class User {
         this.photo_url = "";
         this.password = "";
 
-        this.id = "";
+        this.id = 0;
         this.first_name= "";
         this.last_name = "";
         this.gender = "";
         this.birthday = "";
     };
 
-    public User restoreUser(SharedPreferences prefs){
-        this.setEmail(prefs.getString("email", ""));
-        this.setPassword(prefs.getString("password", ""));
-        this.setName(prefs.getString("name", ""));
-        this.setPhoto_url(prefs.getString("photo_url", ""));
-        return this;
+    public User(long id, String name, String photo_url){
+        this.setId(id);
+        this.setName(name);
+        this.setPhoto_url(photo_url);
     }
 
     public void updateUser(SharedPreferences prefs, Activity context){
@@ -44,13 +42,22 @@ public class User {
         ed.putString("name",this.first_name+' '+this.last_name);
         ed.putString("email",this.email);
         ed.putString("photo_url",this.photo_url);
-        ed.putString("id",this.id);
+        ed.putLong("id",this.id);
         ed.putString("first_name",this.first_name);
         ed.putString("last_name",this.last_name);
         ed.putString("gender",this.gender);
         ed.putString("birthday",this.birthday);
         ed.commit();
-        Toast.makeText(context, "Local User Info Updated", Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "Local User Info Updated", Toast.LENGTH_LONG).show();
+    }
+
+    public User restoreUser(SharedPreferences prefs){
+        this.setEmail(prefs.getString("email", ""));
+        this.setPassword(prefs.getString("password", ""));
+        this.setName(prefs.getString("name", ""));
+        this.setId(prefs.getLong("id",0));
+        this.setPhoto_url(prefs.getString("photo_url", ""));
+        return this;
     }
 
     public Boolean exists(){
@@ -95,11 +102,11 @@ public class User {
         this.photo_url = photo_url;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

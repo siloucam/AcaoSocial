@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:onClick=""
     android:layout_height="match_parent">
 
     <TextView
@@ -56,6 +55,19 @@
         android:layout_toEndOf="@+id/textView8"
         android:text="n_pessoas"
         android:paddingStart="10dp" />
+
+    <Button
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#2D4471"
+        android:background="@drawable/customborder"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="Solicitar Participação"
+        android:id="@+id/button5"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

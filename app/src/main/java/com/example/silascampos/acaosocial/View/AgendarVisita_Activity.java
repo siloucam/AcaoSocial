@@ -21,7 +21,7 @@ import com.example.silascampos.acaosocial.db.DAO;
 import java.io.IOException;
 
 @SuppressWarnings("deprecation")
-public class AgendarVisita_Activity extends AppCompatActivity{
+public class AgendarVisita_Activity extends Lifecycle{
     CalendarView calendarView;
     TextView dateDisplay;
     private AlertDialog alerta;
@@ -29,6 +29,7 @@ public class AgendarVisita_Activity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_agendar_visita);
 
         calendarView = (CalendarView) findViewById(R.id.calendarView);
@@ -45,6 +46,15 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         String value = extras.getString("nome");
         TextView wordToGuess = (TextView) findViewById(R.id.textView5);
         wordToGuess.setText(value);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.i("Agendar", "At this time:");
+        Log.i("Agendar", user.getName());
+        Log.i("Agendar", Integer.toString((int) user.getId()));
     }
 
     public void showTimePickerDialog(View v){
@@ -69,7 +79,7 @@ public class AgendarVisita_Activity extends AppCompatActivity{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        dao.putVisita(t_i,t_data,t_hora,n_pessoas_t);
+        dao.putVisita(t_i,t_data,t_hora,n_pessoas_t,user.getId());
 
         dialog_confirmacao();
     }

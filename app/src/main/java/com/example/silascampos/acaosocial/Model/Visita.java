@@ -9,12 +9,14 @@ public class Visita {
     String data_txt;
     String hora_txt;
     int n_pessoas;
+    String user_id;
 
-    public Visita(String instituicao, String data_txt, String hora_txt, int n_pessoas) {
+    public Visita(String instituicao, String data_txt, String hora_txt, int n_pessoas, String user_id) {
         this.instituicao = instituicao;
         this.data_txt = data_txt;
         this.hora_txt = hora_txt;
         this.n_pessoas = n_pessoas;
+        this.user_id = user_id;
     }
 
     public Visita() {
