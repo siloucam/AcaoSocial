@@ -86,7 +86,7 @@ public class Login extends Lifecycle {
                                 try {
                                     dao = new DAO(getApplicationContext());
                                     long id = dao.putUser(name,user.getEmail(),photo_url,"password",user.getFirst_name(),user.getLast_name(),user.getGender(),user.getBirthday());
-                                    Log.i("myTag","USER SAVED, ID = " + id);
+                                    //Log.i("myTag","USER SAVED, ID = " + id);
                                     user.setId(id);
                                     user.updateUser(userPrefs,context);
                                 } catch (IOException e) {

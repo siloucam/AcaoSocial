@@ -57,6 +57,7 @@
         android:paddingStart="10dp" />
 
     <Button
+        android:visibility="invisible"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="#2D4471"

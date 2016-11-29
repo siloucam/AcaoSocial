@@ -32,11 +32,12 @@
         android:layout_alignParentStart="true" />
 
     <TextView
+        android:textColor="#2D4471"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Sociedade Cultural e Beneficente Mons. Alonso"
         android:id="@+id/textView12"
         android:layout_alignTop="@+id/textView11"
         android:layout_toEndOf="@+id/textView11" />
@@ -62,26 +63,28 @@
         android:layout_alignParentStart="true" />
 
     <TextView
+        android:textColor="#2D4471"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="30/12 14:00"
         android:id="@+id/textView15"
         android:layout_below="@+id/textView12"
         android:layout_toEndOf="@+id/textView13" />
 
     <TextView
+        android:textColor="#2D4471"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="15"
         android:id="@+id/textView16"
         android:layout_below="@+id/textView15"
-        android:layout_toEndOf="@+id/textView14" />
+        android:layout_toEndOf="@+id/textView14"/>
 
     <TextView
         android:layout_marginTop="10dp"
@@ -117,7 +120,7 @@
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
             android:id="@+id/tx_name"
-            android:hint="Name"
+            android:hint="Silas Campos"
             android:textSize="20dp" />
 
     </LinearLayout>
