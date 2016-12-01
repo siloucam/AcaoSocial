@@ -109,8 +109,9 @@
         android:id="@+id/linearLayout">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/useradmin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/photo" />
 
         <TextView
@@ -148,9 +149,28 @@
         android:id="@+id/linearLayout2">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/useradmin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/photo1" />
+
+        <ImageView
+            android:background="@drawable/user1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/photo2" />
+
+        <ImageView
+            android:background="@drawable/user2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/photo3" />
+
+        <ImageView
+            android:background="@drawable/user3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/photo4" />
     </LinearLayout>
 
     <Button

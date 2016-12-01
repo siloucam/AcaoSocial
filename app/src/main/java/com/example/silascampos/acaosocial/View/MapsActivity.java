@@ -47,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Log.i("Map","Ready");
         mMap = googleMap;
         LatLng ufes = new LatLng(-20.277571, -40.30615039999998);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ufes,16));
