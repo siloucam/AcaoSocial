@@ -13,6 +13,9 @@ public final class Contracts {
             public static final String doacoes = "doacoes";
             public static final String contato = "contato";
             public static final String responsavel = "responsavel";
+            public static final String latitude = "latitude";
+            public static final String longitude = "longitude";
+            public static final String category = "category";
         }
     
         public static abstract class Visita implements BaseColumns {

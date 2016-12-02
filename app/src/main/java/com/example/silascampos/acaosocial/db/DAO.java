@@ -8,7 +8,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import com.example.silascampos.acaosocial.Model.Instituicao;
 import com.example.silascampos.acaosocial.Model.User;
 import com.example.silascampos.acaosocial.Model.Visita;
 
@@ -57,7 +59,7 @@ public class DAO {
         this.close();
     }
 
-    public void putInstituicao(String nome, String foto, String descricao, String endereco, String doacoes, String contato, String responsavel){
+    public void putInstituicao(String nome, String foto, String descricao, String endereco, String doacoes, String contato, String responsavel, double latitude, double longitude, int category){
         this.open("write");
 
         ContentValues values = new ContentValues();
@@ -69,6 +71,9 @@ public class DAO {
         values.put(Contracts.Instituicao.doacoes, doacoes);
         values.put(Contracts.Instituicao.contato, contato);
         values.put(Contracts.Instituicao.responsavel, responsavel);
+        values.put(Contracts.Instituicao.latitude, latitude);
+        values.put(Contracts.Instituicao.longitude, longitude);
+        values.put(Contracts.Instituicao.category, category);
 
         long newRowId;
         newRowId = db.insert(
@@ -244,6 +249,53 @@ public class DAO {
         }else{
             return null;
         }
+    }
+
+    public ArrayList<Instituicao>  getLocations(){
+        this.open("read");
+
+        String[] projection = {
+                Contracts.Instituicao._ID,
+                Contracts.Instituicao.foto,
+                Contracts.Instituicao.nome,
+                Contracts.Instituicao.descricao,
+                Contracts.Instituicao.endereco,
+                Contracts.Instituicao.contato,
+                Contracts.Instituicao.responsavel,
+                Contracts.Instituicao.latitude,
+                Contracts.Instituicao.longitude,
+                Contracts.Instituicao.category
+        };
+
+        Cursor c = db.query(
+                Contracts.Instituicao.table,  // The table to query
+                projection,                               // The columns to return
+                null,       // The columns for the WHERE clause
+                null,  // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                null                                 // The sort order
+        );
+
+        ArrayList<Instituicao> List = new ArrayList<>();
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            Instituicao l = new Instituicao(c.getString(1), c.getString(2), c.getString(3), c.getString(4),"doacoes", c.getString(5),c.getString(6), c.getDouble(7),c.getDouble(8),c.getInt(9));
+            List.add(l);
+
+            /*
+            Log.i("rows",c.getString(1));
+            Log.i("rows",c.getString(2));
+            Log.i("rows",c.getString(3));
+            Log.i("rows",c.getString(4));
+            Log.i("rows",c.getString(5));
+            Log.i("rows",c.getString(6));
+            */
+
+        }
+
+        this.close();
+
+        return List;
     }
 
 

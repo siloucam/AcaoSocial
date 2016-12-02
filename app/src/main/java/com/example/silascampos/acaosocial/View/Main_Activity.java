@@ -1,3 +1,4 @@
+/*
 package com.example.silascampos.acaosocial.View;
 
 import android.content.Intent;
@@ -43,6 +44,9 @@ public class Main_Activity extends Lifecycle {
         button1.setFoto("logo_malonso.png");
         button1.setResponsavel("Frei Marcos");
         button1.setDescricao("Lar de idosos. Abriga atualmente cerca de 10 a 15 idosos.");
+        // lat -40.342207218338174
+        // long -20.317962349258583
+        // Instituicao.ASILO
 
         DAO dao = null;
         try {
@@ -172,3 +176,4 @@ public class Main_Activity extends Lifecycle {
         callCard();
     }
 };
+*/

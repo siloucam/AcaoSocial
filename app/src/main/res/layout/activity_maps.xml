@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.example.silascampos.acaosocial.View.MapsActivity">
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".View.MapsActivity" />
 
-    </LinearLayout>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".View.MapsActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center"
+            android:layout_gravity="center"
+            />
+
+        <com.sa90.materialarcmenu.ArcMenu
+            android:id="@+id/arcMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="bottom|start"
+            app:menu_color="@color/colorPrimary"
+            app:menu_open="arc_right"
+            app:menu_radius="90dp"
+            app:menu_ripple_color="@color/colorPrimary"
+            app:menu_scr="@drawable/menu">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabvisita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/visita"
+                app:backgroundTint="@color/colorPrimary" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabgroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group"
+                app:backgroundTint="@color/colorPrimary" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="OpenCard"
+                android:src="@drawable/user"
+                app:backgroundTint="@color/colorPrimary" />
+        </com.sa90.materialarcmenu.ArcMenu>
+
+    </fragment>
+
+
+</LinearLayout>

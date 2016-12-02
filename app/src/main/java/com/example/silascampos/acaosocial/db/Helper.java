@@ -42,7 +42,10 @@ public class Helper extends SQLiteOpenHelper {
                     Contracts.Instituicao.endereco + TEXT_TYPE + COMMA_SEP +
                     Contracts.Instituicao.doacoes + TEXT_TYPE + COMMA_SEP +
                     Contracts.Instituicao.contato + TEXT_TYPE + COMMA_SEP +
-                    Contracts.Instituicao.responsavel + TEXT_TYPE +
+                    Contracts.Instituicao.responsavel + TEXT_TYPE + COMMA_SEP +
+                    Contracts.Instituicao.latitude + TEXT_TYPE + COMMA_SEP +
+                    Contracts.Instituicao.longitude + TEXT_TYPE + COMMA_SEP +
+                    Contracts.Instituicao.category + TEXT_TYPE +
                     " )";
 
     public static final String SQL_CREATE_VISITAS_TABLE =
@@ -124,7 +127,6 @@ public class Helper extends SQLiteOpenHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void onCreate(SQLiteDatabase db) {

@@ -94,14 +94,13 @@ public class Login extends Lifecycle {
                                     Log.i("myTag","EXCEPTION");
                                 }
 
-
                             }
                         });
 
                 request.executeAsync();
 
                 //Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_LONG).show();
-                Intent it = new Intent(getApplicationContext(), Main_Activity.class);
+                Intent it = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(it);
             }
             @Override
@@ -127,7 +126,7 @@ public class Login extends Lifecycle {
         Log.i("myTag","Resume");
         if(isLoggedIn()){
 
-            Intent it = new Intent(getApplicationContext(), Main_Activity.class);
+            Intent it = new Intent(getApplicationContext(), MapsActivity.class);
             startActivity(it);
         }else{
             Log.i("myTag","Deslogado?");
